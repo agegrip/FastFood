@@ -1,0 +1,5 @@
+#include "Part.h"
+#include "Game\Common\DeviceResources.h"
+#include "Game\Common\GameContext.h"
+#include "Game\Common\Utilities.h"
+#include "Game\Collider\CollisionManager.h"
