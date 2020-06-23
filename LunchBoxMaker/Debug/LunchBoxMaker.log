@@ -1,0 +1,22 @@
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (LunchBoxMaker.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  Game\Assets\Models\WoodenBox.fbx
+  Player.cpp
+c:\users\s182031\documents\visual studio 2015\projects\fastfood\lunchboxmaker\game\gameobject\player.cpp(39): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
+  コードを生成中...
+  スキップ中... (関連する変更は検出されませんでした)
+  BaseScene.cpp
+  GameObjectManager.cpp
+  GameObject.cpp
+  Box.cpp
+  GridFloor.cpp
+  FollowComera.cpp
+  FixCamera.cpp
+  DeviceResources.cpp
+  BinaryFile.cpp
+  SphereCollider.cpp
+  CollisionManager.cpp
+  Collider.cpp
+  CapsuleCollider.cpp
+  BoxCollider.cpp
+  LunchBoxMaker.vcxproj -> C:\Users\s182031\Documents\Visual Studio 2015\Projects\FastFood\Debug\FastFood.exe
+  LunchBoxMaker.vcxproj -> C:\Users\s182031\Documents\Visual Studio 2015\Projects\FastFood\Debug\FastFood.pdb (Full PDB)
