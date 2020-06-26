@@ -7,8 +7,8 @@
 const float Bullet::MOVE_SPEED = 0.2f;
 float Bullet::MOVABLE_AREA_SIZE = 10.0f;
 
-Bullet::Bullet(const DirectX::SimpleMath::Vector3& position, const DirectX::SimpleMath::Vector3& azimuth)
-	:GameObject("Bullet")
+Bullet::Bullet(const DirectX::SimpleMath::Vector3& position, const DirectX::SimpleMath::Vector3& azimuth, const std::string& objectname)
+	:GameObject(objectname)
 	,m_velocity(azimuth * MOVE_SPEED)
 	,m_origin(position)
 	,m_flag(false)
