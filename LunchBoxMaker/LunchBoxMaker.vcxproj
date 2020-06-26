@@ -133,6 +133,7 @@
     <ClInclude Include="Game\GameObject\Enemy.h" />
     <ClInclude Include="Game\GameObject\GameObject.h" />
     <ClInclude Include="Game\GameObject\GameObjectManager.h" />
+    <ClInclude Include="Game\GameObject\Humberger.h" />
     <ClInclude Include="Game\GameObject\Part.h" />
     <ClInclude Include="Game\GameObject\Player.h" />
     <ClInclude Include="Game\Scene\BaseScene.h" />
@@ -155,6 +156,7 @@
     <ClCompile Include="Game\GameObject\Enemy.cpp" />
     <ClCompile Include="Game\GameObject\GameObject.cpp" />
     <ClCompile Include="Game\GameObject\GameObjectManager.cpp" />
+    <ClCompile Include="Game\GameObject\Humberger.cpp" />
     <ClCompile Include="Game\GameObject\Part.cpp" />
     <ClCompile Include="Game\GameObject\Player.cpp" />
     <ClCompile Include="Game\Scene\BaseScene.cpp" />

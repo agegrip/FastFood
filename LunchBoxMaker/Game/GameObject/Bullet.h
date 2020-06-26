@@ -11,7 +11,7 @@ public:
 	static const float MOVE_SPEED;
 	static float MOVABLE_AREA_SIZE;
 public:
-	Bullet(const DirectX::SimpleMath::Vector3& position, const DirectX::SimpleMath::Vector3& azimuth);
+	Bullet(const DirectX::SimpleMath::Vector3& position, const DirectX::SimpleMath::Vector3& azimuth ,const std::string& objectname);
 	~Bullet();
 	void Update(float elapsedTime) override;
 	void Render(const DirectX::SimpleMath::Matrix& viewMatrix,const DirectX::SimpleMath::Matrix& projectionMatrix) override;

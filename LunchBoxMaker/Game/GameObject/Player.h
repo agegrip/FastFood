@@ -1,6 +1,8 @@
 #pragma once
 #include "DirectXTK\GeometricPrimitive.h"
 #include "DirectXTK\SimpleMath.h"
+#include "DirectXTK\SpriteBatch.h"
+#include "DirectXTK\SpriteFont.h"
 #include "GameObject.h"
 
 using namespace DirectX;
@@ -20,4 +22,13 @@ private:
 	bool  m_isLoading;
 	float m_horizontalAngle;
 	std::unique_ptr<DirectX::GeometricPrimitive> m_playerGeometric;
+	std::string m_bulletName;
+
+	DirectX::SimpleMath::Vector2 m_stringpos;
+	//スプライトバッチ
+	std::unique_ptr<DirectX::SpriteBatch> m_spriteBatch;
+	//スプライトフォント
+	std::unique_ptr<DirectX::SpriteFont> m_spriteFont;
+	// コモンステート
+	std::unique_ptr<DirectX::CommonStates> m_state;
 };

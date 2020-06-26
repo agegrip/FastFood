@@ -45,7 +45,7 @@ void Enemy::Render(const DirectX::SimpleMath::Matrix& viewMatrix, const DirectX:
 
 void Enemy::OnCollision(GameObject* object)
 {
-	if (object->GetTag() != GetTag())
+	if (object->GetTag() == "Humberger")
 	{
 		m_flag = true;
 	}

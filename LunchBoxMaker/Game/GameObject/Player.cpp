@@ -9,22 +9,29 @@
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
-Player::Player(const DirectX::SimpleMath::Vector3& position,float fireInterval)
+Player::Player(const DirectX::SimpleMath::Vector3& position, float fireInterval)
 	:GameObject("Player")
-	,m_playerGeometric()
-	,m_fireInterval(fireInterval)
-	,m_elapsedTime(0.f)
-	,m_horizontalAngle(-90.0f)
-	,m_isLoading(false)
+	, m_playerGeometric()
+	, m_fireInterval(fireInterval)
+	, m_elapsedTime(0.f)
+	, m_horizontalAngle(-90.0f)
+	, m_isLoading(false)
+	, m_bulletName("Humberger")
 {
 	DX::DeviceResources* deviceResources = GameContext<DX::DeviceResources>::Get();
+	ID3D11Device*		 device = deviceResources->GetD3DDevice();
 	ID3D11DeviceContext* deviceContext = deviceResources->GetD3DDeviceContext();
 
 	// ポジション
 	m_position = position;
 	// ジオメトリ
 	m_playerGeometric = DirectX::GeometricPrimitive::CreateBox(deviceContext, DirectX::SimpleMath::Vector3(1.0f, 2.0f, 1.0f));
-
+	//ステート作成
+	m_state = std::make_unique<DirectX::CommonStates>(device);
+	//スプライト作成
+	m_spriteBatch = std::make_unique<DirectX::SpriteBatch>(deviceContext);
+	//フォント作成
+	m_spriteFont = std::make_unique <DirectX::SpriteFont>(device, L"Resources\\Fonts\\SegoeUI_18.spritefont");
 	
 }
 
@@ -36,7 +43,14 @@ void Player::Update(float elapsedTime)
 {
 	DirectX::Keyboard::State keyState = DirectX::Keyboard::Get().GetState();
 	DirectX::Mouse::State mouseState = DirectX::Mouse::Get().GetState();
-	m_horizontalAngle = mouseState.x;
+	if (keyState.A)
+	{
+		m_horizontalAngle -= 1.0f;
+	}
+	if (keyState.D)
+	{
+		m_horizontalAngle += 1.0f;
+	}
 	if (m_isLoading)
 	{
 		m_elapsedTime += elapsedTime;
@@ -47,7 +61,7 @@ void Player::Update(float elapsedTime)
 	}
 	if (!m_isLoading)
 	{
-		if (mouseState.leftButton)
+		if (keyState.Space)
 		{
 			Fire();
 		}
@@ -60,13 +74,20 @@ void Player::Render(const DirectX::SimpleMath::Matrix& viewMatrix, const DirectX
 	world *= DirectX::SimpleMath::Matrix::CreateTranslation(m_position);
 
 	m_playerGeometric->Draw(world, viewMatrix, projectionMatrix);
+
+	wchar_t text[50];
+	std::wstring ws = std::wstring(m_bulletName.begin(), m_bulletName.end());
+	swprintf(text, ws.c_str(), m_stringpos.x, m_stringpos.y);
+	m_spriteBatch->Begin(DirectX::SpriteSortMode_Deferred, m_state->NonPremultiplied());
+	m_spriteFont->DrawString(m_spriteBatch.get(), text, DirectX::SimpleMath::Vector2(0, 0));
+	m_spriteBatch->End();
 }
 
 void Player::Fire()
  {
 	float rad = DirectX::XMConvertToRadians(m_horizontalAngle);
 	DirectX::SimpleMath::Vector3 direction(cos(rad), 0.f, sin(rad));
-	std::unique_ptr<Bullet> bullet = std::make_unique<Bullet>(m_position, direction);
+	std::unique_ptr<Bullet> bullet = std::make_unique<Bullet>(m_position, direction,m_bulletName);
 	GameContext<GameObjectManager>::Get()->Add(std::move(bullet));
 	m_elapsedTime = 0.f;
 	m_isLoading = true;
