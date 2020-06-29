@@ -60,19 +60,40 @@ void PlayScene::Initialize()
 	m_pPlayer = pPlayer.get();
 	GameContext<GameObjectManager>().Get()->Add(std::move(pPlayer));
 	// エネミー作成
-	std::unique_ptr<Enemy> pEnemy = std::make_unique<Enemy>(DirectX::SimpleMath::Vector3(0.f, 0.f, 0.f));
-	m_pEnemy = pEnemy.get();
-	GameContext<GameObjectManager>().Get()->Add(std::move(pEnemy));
+	std::unique_ptr<EnemyGenerator> pEnemyGenerator = std::make_unique<EnemyGenerator>(2.0f);
+	m_pEnemyGenerator = pEnemyGenerator.get();
+	GameContext<GameObjectManager>().Get()->Add(std::move(pEnemyGenerator));
+	// 椅子作成
+	for (int i = 0; i < 3; i++)
+	{
+		if (i == 0)
+		{
+			std::unique_ptr<Chair> pChair = std::make_unique<Chair>(DirectX::SimpleMath::Vector3(0.0f,0.0f,0.0f));
+			m_pChair[i] = pChair.get();
+			GameContext<GameObjectManager>().Get()->Add(std::move(pChair));
+		}
+		if (i == 1)
+		{
+			std::unique_ptr<Chair> pChair = std::make_unique<Chair>(DirectX::SimpleMath::Vector3(3.0f, 0.0f, 0.0f));
+			m_pChair[i] = pChair.get();
+			GameContext<GameObjectManager>().Get()->Add(std::move(pChair));
+		}
+		if (i == 2)
+		{
+			std::unique_ptr<Chair> pChair = std::make_unique<Chair>(DirectX::SimpleMath::Vector3(-3.0f, 0.0f, 0.0f));
+			m_pChair[i] = pChair.get();
+			GameContext<GameObjectManager>().Get()->Add(std::move(pChair));
+		}
+	}
 
-	
 }
 
 void PlayScene::Update(float elapsedTime)
 {
 	DirectX::Keyboard::State keystate = GameContext<DirectX::Keyboard>::Get()->GetState();
 	DirectX::Mouse::State mouseState = GameContext<DirectX::Mouse>::Get()->GetState();
+	//DirectX::SimpleMath::Vector3::Transform();
 	if (mouseState.positionMode == DirectX::Mouse::MODE_RELATIVE) return;
-	
 	// カメラの更新
 	m_fixcamera->Update();
 	// ゲームオブジェクトの更新

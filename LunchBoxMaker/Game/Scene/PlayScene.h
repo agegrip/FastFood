@@ -12,6 +12,8 @@
 #include "Game\Common\FixCamera.h"
 #include "Game\GameObject\Player.h"
 #include "Game\GameObject\Enemy.h"
+#include "Game\GameObject\EnemyGenerator.h"
+#include "Game\GameObject\Chair.h"
 
 class GameObjectManager;
 class GridFloor;
@@ -54,6 +56,10 @@ private:
 	Player*											 m_pPlayer;
 	// エネミー
 	Enemy*											 m_pEnemy;
+	// エネミー
+	EnemyGenerator*									 m_pEnemyGenerator;
 	// プレイヤーポジション
 	DirectX::SimpleMath::Vector3					 m_pPlayerPos;
+	// 椅子
+	Chair*											 m_pChair[3];
 };

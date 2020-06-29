@@ -8,17 +8,17 @@
 #include "Game\GameObject\GameObjectManager.h"
 #include "Game\Collider\CollisionManager.h"
 
-Enemy::Enemy(const DirectX::SimpleMath::Vector3& position)
+Enemy::Enemy()
 	:GameObject("Enemy")
-	,m_enemyGeometric()
-	,m_elapsedTime()
-	,m_flag(false)
+	, m_enemyGeometric()
+	, m_elapsedTime()
+	, m_flag(false)
+	, m_siting(false)
 {
 	DX::DeviceResources* deviceResources = GameContext<DX::DeviceResources>::Get();
 	ID3D11DeviceContext* deviceContext = deviceResources->GetD3DDeviceContext();
-
 	// オブジェクト位置
-	m_position = position;
+	
 	// ジオメトリ作成
 	m_enemyGeometric = DirectX::GeometricPrimitive::CreateBox(deviceContext, DirectX::SimpleMath::Vector3(1.f, 1.f, 1.f));
 	// コライダー作成
@@ -52,4 +52,5 @@ void Enemy::OnCollision(GameObject* object)
 	{
 		m_flag = true;
 	}
+
 }

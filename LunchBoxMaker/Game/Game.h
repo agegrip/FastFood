@@ -76,7 +76,7 @@ private:
 	// CollisionManager
 	std::unique_ptr<CollisionManager>		m_collisionManager;
 	// キーボード
-	std::unique_ptr<DirectX::Keyboard>				 m_pkeyboard;
+	std::unique_ptr<DirectX::Keyboard>		m_pkeyboard;
 	// マウス
-	std::unique_ptr<DirectX::Mouse>					 m_pMouse;
+	std::unique_ptr<DirectX::Mouse>			m_pMouse;
 };
