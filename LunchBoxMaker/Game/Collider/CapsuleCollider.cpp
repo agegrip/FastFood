@@ -1,3 +1,6 @@
+//
+// CapsuleCollider
+//
 #include "Game\Collider\CapsuleCollider.h"
 
 CapsuleCollider::CapsuleCollider(GameObject * owner, float radius, DirectX::SimpleMath::Vector3 start, DirectX::SimpleMath::Vector3 end)

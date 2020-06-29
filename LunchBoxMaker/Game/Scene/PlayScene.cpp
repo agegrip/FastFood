@@ -92,7 +92,7 @@ void PlayScene::Render()
 	DX::DeviceResources* deviceResources = GameContext<DX::DeviceResources>::Get();
 	ID3D11DeviceContext* context = deviceResources->GetD3DDeviceContext();
 	wchar_t text[50];
-	swprintf(text, L"PlayScene\nPresing X Key", m_pos.x, m_pos.y);
+	swprintf(text, L"\nPlayScene\nPresing X Key", m_pos.x, m_pos.y);
 	m_spriteBatch->Begin(DirectX::SpriteSortMode_Deferred, m_state->NonPremultiplied());
 	m_spriteFont->DrawString(m_spriteBatch.get(), text, DirectX::SimpleMath::Vector2(0, 0));
 	

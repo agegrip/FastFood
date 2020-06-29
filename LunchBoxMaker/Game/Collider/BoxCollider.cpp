@@ -1,3 +1,6 @@
+//
+// BoxCollider.cpp
+//
 #include "Game\Collider\BoxCollider.h"
 
 BoxCollider::BoxCollider(GameObject* owner, const DirectX::SimpleMath::Vector3& size)

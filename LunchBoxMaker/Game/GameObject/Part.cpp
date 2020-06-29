@@ -1,3 +1,6 @@
+//
+// Part.cpp
+//
 #include "Part.h"
 #include "Game\Common\DeviceResources.h"
 #include "Game\Common\GameContext.h"

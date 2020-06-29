@@ -1,15 +1,5 @@
 ﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (LunchBoxMaker.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   Game\Assets\Models\WoodenBox.fbx
-  TitleScene.cpp
-c:\users\s182031\documents\git\fastfood\lunchboxmaker\game\scene\titlescene.cpp(21): warning C4189: 'state': ローカル変数が初期化されましたが、参照されていません
-c:\users\s182031\documents\git\fastfood\lunchboxmaker\game\scene\titlescene.cpp(34): warning C4100: 'elapsedTime': 引数は関数の本体部で 1 度も参照されません。
-c:\users\s182031\documents\git\fastfood\lunchboxmaker\game\scene\titlescene.cpp(48): warning C4474: 'swprintf': 書式文字列に渡された引数の数が多すぎます
-  c:\users\s182031\documents\git\fastfood\lunchboxmaker\game\scene\titlescene.cpp(48): note: プレースホルダーとそのパラメーターには 0 の可変個引数が必要ですが、2 が指定されています。
-c:\users\s182031\documents\git\fastfood\lunchboxmaker\game\scene\titlescene.cpp(48): warning C4996: 'swprintf': function has been changed to conform with the ISO C standard, adding an extra character count parameter. To use the traditional Microsoft version, set _CRT_NON_CONFORMING_SWPRINTFS.
-  c:\program files (x86)\windows kits\10\include\10.0.14393.0\ucrt\corecrt_wstdio.h(1822): note: 'swprintf' の宣言を確認してください
-  Player.cpp
-c:\users\s182031\documents\git\fastfood\lunchboxmaker\game\gameobject\player.cpp(80): warning C4996: 'swprintf': function has been changed to conform with the ISO C standard, adding an extra character count parameter. To use the traditional Microsoft version, set _CRT_NON_CONFORMING_SWPRINTFS.
-  c:\program files (x86)\windows kits\10\include\10.0.14393.0\ucrt\corecrt_wstdio.h(1822): note: 'swprintf' の宣言を確認してください
-  コードを生成中...
+     ライブラリ C:\Users\s182031\Documents\Git\FastFood\Debug\FastFood.lib とオブジェクト C:\Users\s182031\Documents\Git\FastFood\Debug\FastFood.exp を作成中
   LunchBoxMaker.vcxproj -> C:\Users\s182031\Documents\Git\FastFood\Debug\FastFood.exe
   LunchBoxMaker.vcxproj -> C:\Users\s182031\Documents\Git\FastFood\Debug\FastFood.pdb (Full PDB)

@@ -1,3 +1,6 @@
+//
+// CollisionManager.h
+//
 #pragma once
 #include "DirectXTK\SimpleMath.h"
 #include <vector>
