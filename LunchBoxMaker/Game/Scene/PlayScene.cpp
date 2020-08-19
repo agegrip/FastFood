@@ -63,29 +63,10 @@ void PlayScene::Initialize()
 	std::unique_ptr<EnemyGenerator> pEnemyGenerator = std::make_unique<EnemyGenerator>(2.0f);
 	m_pEnemyGenerator = pEnemyGenerator.get();
 	GameContext<GameObjectManager>().Get()->Add(std::move(pEnemyGenerator));
-	// à÷éqçÏê¨
-	for (int i = 0; i < 3; i++)
-	{
-		if (i == 0)
-		{
-			std::unique_ptr<Chair> pChair = std::make_unique<Chair>(DirectX::SimpleMath::Vector3(0.0f,0.0f,0.0f));
-			m_pChair[i] = pChair.get();
-			GameContext<GameObjectManager>().Get()->Add(std::move(pChair));
-		}
-		if (i == 1)
-		{
-			std::unique_ptr<Chair> pChair = std::make_unique<Chair>(DirectX::SimpleMath::Vector3(3.0f, 0.0f, 0.0f));
-			m_pChair[i] = pChair.get();
-			GameContext<GameObjectManager>().Get()->Add(std::move(pChair));
-		}
-		if (i == 2)
-		{
-			std::unique_ptr<Chair> pChair = std::make_unique<Chair>(DirectX::SimpleMath::Vector3(-3.0f, 0.0f, 0.0f));
-			m_pChair[i] = pChair.get();
-			GameContext<GameObjectManager>().Get()->Add(std::move(pChair));
-		}
-	}
-
+	// êHÇ◊ï®çÏê¨
+	std::unique_ptr<FoodGenerator> pFoodGenerator = std::make_unique<FoodGenerator>(2.0f);
+	m_pFoodGenerator = pFoodGenerator.get();
+	GameContext<GameObjectManager>().Get()->Add(std::move(pFoodGenerator));
 }
 
 void PlayScene::Update(float elapsedTime)

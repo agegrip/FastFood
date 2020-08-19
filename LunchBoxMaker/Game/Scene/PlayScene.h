@@ -13,6 +13,8 @@
 #include "Game\GameObject\Player.h"
 #include "Game\GameObject\Enemy.h"
 #include "Game\GameObject\EnemyGenerator.h"
+#include "Game\GameObject\Food.h"
+#include "Game\GameObject\FoodGenerator.h"
 #include "Game\GameObject\Chair.h"
 
 class GameObjectManager;
@@ -56,10 +58,13 @@ private:
 	Player*											 m_pPlayer;
 	// エネミー
 	Enemy*											 m_pEnemy;
-	// エネミー
+	// エネミー生成
 	EnemyGenerator*									 m_pEnemyGenerator;
+	// 食べ物
+	Food*											 m_pFood;
+	//食べ物生成
+	FoodGenerator*									 m_pFoodGenerator;
 	// プレイヤーポジション
 	DirectX::SimpleMath::Vector3					 m_pPlayerPos;
-	// 椅子
-	Chair*											 m_pChair[3];
+
 };

@@ -34,4 +34,6 @@ private:
 	std::unique_ptr<DirectX::SpriteFont> m_spriteFont;
 	// コモンステート
 	std::unique_ptr<DirectX::CommonStates> m_state;
+	//
+	float m_counter;
 };

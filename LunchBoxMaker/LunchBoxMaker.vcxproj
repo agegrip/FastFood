@@ -133,6 +133,8 @@
     <ClInclude Include="Game\GameObject\Chair.h" />
     <ClInclude Include="Game\GameObject\Enemy.h" />
     <ClInclude Include="Game\GameObject\EnemyGenerator.h" />
+    <ClInclude Include="Game\GameObject\Food.h" />
+    <ClInclude Include="Game\GameObject\FoodGenerator.h" />
     <ClInclude Include="Game\GameObject\GameObject.h" />
     <ClInclude Include="Game\GameObject\GameObjectManager.h" />
     <ClInclude Include="Game\GameObject\Part.h" />
@@ -157,6 +159,8 @@
     <ClCompile Include="Game\GameObject\Chair.cpp" />
     <ClCompile Include="Game\GameObject\Enemy.cpp" />
     <ClCompile Include="Game\GameObject\EnemyGenerator.cpp" />
+    <ClCompile Include="Game\GameObject\Food.cpp" />
+    <ClCompile Include="Game\GameObject\FoodGenerator.cpp" />
     <ClCompile Include="Game\GameObject\GameObject.cpp" />
     <ClCompile Include="Game\GameObject\GameObjectManager.cpp" />
     <ClCompile Include="Game\GameObject\Part.cpp" />

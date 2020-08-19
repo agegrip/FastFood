@@ -20,6 +20,7 @@ Player::Player(const DirectX::SimpleMath::Vector3& position, float fireInterval)
 	, m_horizontalAngle(-90.0f)
 	, m_isLoading(false)
 	, m_bulletName("Humberger")
+	, m_counter(0)
 {
 	DX::DeviceResources* deviceResources = GameContext<DX::DeviceResources>::Get();
 	ID3D11Device*		 device = deviceResources->GetD3DDevice();
@@ -45,29 +46,32 @@ Player::~Player()
 void Player::Update(float elapsedTime)
 {
 	DirectX::Keyboard::State keyState = DirectX::Keyboard::Get().GetState();
+	DirectX::Keyboard::KeyboardStateTracker keyStateTraker;
 	DirectX::Mouse::State mouseState = DirectX::Mouse::Get().GetState();
-	if (keyState.A)
+	keyStateTraker.Update(keyState);
+	if (m_counter <= 0)
 	{
-		m_horizontalAngle -= 1.0f;
-	}
-	if (keyState.D)
-	{
-		m_horizontalAngle += 1.0f;
-	}
-	if (m_isLoading)
-	{
-		m_elapsedTime += elapsedTime;
-		if (m_elapsedTime > m_fireInterval)
+		if (keyStateTraker.pressed.A)
 		{
-			m_isLoading = false;
+			if (m_position.x != -3.0f)
+			{
+				m_position.x -= 3.0f;
+				m_counter = 10;
+			}
+		}
+
+		if (keyStateTraker.pressed.D)
+		{
+			if (m_position.x != 3.0f)
+			{
+				m_position.x += 3.0f;
+				m_counter = 10;
+			}
 		}
 	}
-	if (!m_isLoading)
+	else
 	{
-		if (keyState.Space)
-		{
-			Fire();
-		}
+		m_counter--;
 	}
 }
 
